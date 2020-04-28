@@ -7,7 +7,7 @@
  * @number: input value
  * Return: address
  */
-listint_t *insert_node(listint_t **head, int number);
+listint_t *insert_node(listint_t **head, int number)
 {
 	listint_t *n_node, *tmp;
 
