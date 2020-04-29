@@ -8,22 +8,32 @@
  * @number: input value
  * Return: the address of the new node, or NULL if it failed
  */
+listint_t *_insert_node(listint_t **head, int number)
+{
+	listint_t *new;
+
+	if (*head && number > (*head)->n)
+		return (_insert_node(&((*head)->next), number));
+
+	new = malloc(sizeof(*new));
+	if (!new)
+		return (NULL);
+
+	new->n = number;
+	new->next = *head;
+	*head = new;
+
+	return (new);
+}
+/**
+ * insert_node - inserts new node to linked list
+ * @head: head of singly linked list
+ * @number: input value
+ * Return: the address of the new node, or NULL if it failed
+ */
 listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *n_node, *tmp;
-
-	tmp = *head;
-	if (!head)
-		return (NULL);
-	n_node = malloc(sizeof(listint_t));
-	if (!n_node)
-		return (NULL);
-	n_node->n = number;
-	if (!tmp || tmp->n >= number)
-	{
-		n_node->next = tmp;
-		*head = n_node;
-		return (n_node);
-	}
-	return (n_node);
+	if (head)
+		return (_insert_node(head, number));
+	return (NULL);
 }
