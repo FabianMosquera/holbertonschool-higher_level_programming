@@ -5,7 +5,7 @@ if __name__ == "__main__":
     argc = len(sys.argv)
     for str in range(argc):
         if (argc != 4):
-            print("Usage: {s} <a> <operator> <b>".format(sys.argv[str]))
+            print("Usage: {:s} <a> <operator> <b>".format(sys.argv[str]))
             exit(1)
         else:
             a = int(sys.argv[1])
