@@ -6,7 +6,7 @@
  */
 int is_palindrome(listint_t **head)
 {
-	int len = 1;
+	unsigned int len = 1;
 	listint_t *tmp;
 
 	if (head == NULL || *head == NULL)
