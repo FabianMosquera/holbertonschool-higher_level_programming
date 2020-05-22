@@ -1,0 +1,44 @@
+Using ''matrix_divided''
+------------------------
+First import ''matrix_divided''
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Now use it:
+
+Basic usage:
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], 3)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+Divided with negatives:
+    >>> matrix_divided([[1.0, -2.4, 3.1], [4.3, -5.3, -6.2]], 2)
+[[0.5, -1.2, 1.55], [2.15, -2.65, -3.1]]
+
+Divided by 0:
+    >>> matrix_divided([[1.0, -2.4, 3.1], [4.3, -5.3, -6.2]], 0)
+    Traceback (most recent call last):
+    ZeroDivisionError: division by zero
+
+Divided by char:
+    >>> matrix_divided([[1.0, -2.4, 3.1], [4.3, -5.3, -6.2]], 'z')
+    Traceback (most recent call last):
+    TypeError: div must be a number
+
+Different size:
+    >>> matrix_divided([[1.0, 3.1], [4.3, -5.3, -6.2]], 1)
+    Traceback (most recent call last):
+    TypeError: Each row of the matrix must have the same size
+
+Infinite:
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], float("inf"))
+    [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+No number for div:
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]])
+    Traceback (most recent call last):
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+Divide by special char:
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], '#')
+    Traceback (most recent call last):
+    TypeError: div must be a number
