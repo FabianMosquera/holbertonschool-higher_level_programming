@@ -7,9 +7,6 @@ Program that return a text with a newline
 def text_indentation(text):
     """ prints a text with 2 new lines after
     each of these characters: ., ? and :
-    >>> text_indentation()
-    Traceback (most recent call last):
-    TypeError: text_indentation() missing 1 required positional argument: 'text'
     """
     new_lines = ['.', '?', ':']
     if type(text) != str:
