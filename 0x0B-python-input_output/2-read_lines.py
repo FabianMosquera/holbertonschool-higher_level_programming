@@ -9,9 +9,11 @@ def read_lines(filename="", nb_lines=0):
     """
     count = 0
     with open(filename, encoding="UTF-8") as r:
-        if nb_lines <= 0:
-            print(r.read(), end="")
-        for i in r:
-            if count < nb_lines:
-                print(count, end="")
-                count += 1
+        while True:
+            line = r.readline()
+            count += 1
+            print(line, end="")
+            if count >= nb_lines and nb_lines > 0:
+                break
+            if not line:
+                break
