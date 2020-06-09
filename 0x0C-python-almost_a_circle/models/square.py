@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""square
+"""
+Square
 """
 from models.rectangle import Rectangle
 
@@ -9,14 +10,17 @@ class Square(Rectangle):
     """
     def __init__(self, size, x=0, y=0, id=None):
         super().__init__(width=size, height=size, x=x, y=y, id=id)
+        self.size = size
 
     @property
     def size(self):
+        """Getter size
+        """
         return self.width
 
     @size.setter
     def size(self, value):
-        """size needs to be an int
+        """Setter size
         """
         self.width = value
         self.height = value
@@ -30,8 +34,8 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         if len(kwargs) != 0:
-            for k, v in kwargs.items():
-                setattr(self, k, v)
+            for key, value in kwargs.items():
+                setattr(self, key, value)
         elif len(args) != 0:
             try:
                 self.id = args[0]
@@ -44,6 +48,6 @@ class Square(Rectangle):
             print()
 
     def to_dictionary(self):
-        """Returns a dict representation
+        """A dictionary
         """
         return {'id': self.id, 'x': self.x, 'size': self.width, 'y': self.y}
