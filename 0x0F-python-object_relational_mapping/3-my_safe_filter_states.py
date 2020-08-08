@@ -11,25 +11,21 @@ def get_names_save():
     argv[3]: database name
     argv[4]: state name searched
     """
-    if len(sys.argv) == 5:
-        db = MySQLdb.connect(host="localhost",
-                            port=3306,
-                            user=sys.argv[1],
-                            passwd=sys.argv[2],
-                            db=sys.argv[3])
+    db = MySQLdb.connect(host="localhost",
+                        port=3306,
+                        user=sys.argv[1],
+                        passwd=sys.argv[2],
+                        db=sys.argv[3])
 
-        cur = db.cursor()
-        cur.execute("""SELECT * FROM states WHERE name
-                    LIKE BINARY '{}' ORDER BY id ASC"""
-                    .format(sys.argv[4]))
-        # fetchall is necesary for that the print show as a tuple
-        var = cur.fetchall()
-        for i in var:
-            print(i)
-        cur.close()
-        db.close()
-    else:
-        return
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states WHERE name = %s \
+                ORDER BY id ASC", (argv[4],))
+    # fetchall is necesary for that the print show as a tuple
+    var = cur.fetchall()
+    for i in var:
+        print(i)
+    cur.close()
+    db.close()
 
 if __name__ == "__main__":
     get_names_save()
