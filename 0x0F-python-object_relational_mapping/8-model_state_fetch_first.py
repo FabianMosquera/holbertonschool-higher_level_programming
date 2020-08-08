@@ -23,7 +23,7 @@ def first_state():
         print("{}: {}".format(var.__dict__['id'], var.__dict__['name']))
     else:
         print("Nothing")
-    
+
     session.close()
 
 if __name__ == "__main__":
