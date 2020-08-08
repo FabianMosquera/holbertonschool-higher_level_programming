@@ -5,6 +5,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 from model_state import Base, State
 
+
 def list_all():
     """ Arguments argv to connect to database
     argv[1]: mysql username
