@@ -18,8 +18,9 @@ def get_names_save():
                          db=sys.argv[3])
 
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name = %s \
-                ORDER BY id ASC", (argv[4],))
+    cur.execute("""SELECT * FROM states WHERE name
+                LIKE BINARY %s ORDER BY id ASC""",
+                (argv[4], ))
     # fetchall is necesary for that the print show as a tuple
     var = cur.fetchall()
     for i in var:
