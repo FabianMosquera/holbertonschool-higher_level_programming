@@ -28,7 +28,7 @@ def first_state():
     if res != "":
         print(res)
     else:
-        print("Not Found")
+        print("Not found")
 
     session.close()
 
