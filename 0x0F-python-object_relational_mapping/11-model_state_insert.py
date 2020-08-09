@@ -23,6 +23,7 @@ def first_state():
 
     session.add(state)
     session.commit()
+    print(state.id)
     session.close()
 
 if __name__ == "__main__":
