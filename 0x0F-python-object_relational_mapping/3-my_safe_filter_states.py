@@ -24,7 +24,7 @@ def get_names_save():
     # fetchall is necesary for that the print show as a tuple
     var = cur.fetchall()
     for i in var:
-        print(i)
+        print("{}".format(i))
     cur.close()
     db.close()
 
