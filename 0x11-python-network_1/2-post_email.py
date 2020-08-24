@@ -6,10 +6,13 @@ import sys
 
 
 if __name__ == "__main__":
-    value = {"email": sys.argv[2]}
-    data = urllib.parse.urlencode(v)
-    data = data.encode("ascii")
-    req = urllib.request.Request(sys.argv[1], data)
+    url = argv[1]
+    email = argv[2]
+    value = {'email': email}
+
+    data = urllib.parse.urlencode(value)
+    data = data.encode('ascii')
+    req = urllib.request.Request(url, data)
     with urllib.request.urlopen(req) as response:
-        html = response.read()
-        print(html.decode("utf-8"))
+        body_page = response.read()
+        print(body_page.decode('utf-8'))
